@@ -1,0 +1,25 @@
+PODS:
+  - MagicalRecord (2.2):
+    - MagicalRecord/Core (= 2.2)
+  - MagicalRecord/Core (2.2)
+  - ReactiveCocoa (2.4.4):
+    - ReactiveCocoa/UI (= 2.4.4)
+  - ReactiveCocoa/Core (2.4.4):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.4.4)
+  - ReactiveCocoa/UI (2.4.4):
+    - ReactiveCocoa/Core
+  - ReactiveViewModel (0.3):
+    - ReactiveCocoa (~> 2.4)
+
+DEPENDENCIES:
+  - MagicalRecord
+  - ReactiveCocoa
+  - ReactiveViewModel
+
+SPEC CHECKSUMS:
+  MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
+  ReactiveCocoa: 31119068e3dde866bd257cf74e1f06b4023bf387
+  ReactiveViewModel: 512224f801ea0a603fd394eed0f38bc662b64b9a
+
+COCOAPODS: 0.36.0.beta.1
