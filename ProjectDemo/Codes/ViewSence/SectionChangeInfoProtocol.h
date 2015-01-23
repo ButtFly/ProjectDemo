@@ -13,8 +13,7 @@ typedef NS_OPTIONS(NSInteger, SectionChangeType) {
     SectionChangeDeleteSections     = 1 << 1,
     SectionChangeInsertObjects      = 1 << 2,
     SectionChangeDeleteObjects      = 1 << 3,
-    SectionChangeMoveObjects        = 1 << 4,
-    SectionChangeUpdateObjects      = 1 << 5,
+    SectionChangeUpdateObjects      = 1 << 4,
     SectionChangeInitialize         = NSNotFound
 };
 

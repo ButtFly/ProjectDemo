@@ -8,6 +8,7 @@ target 'ProjectDemo' do
 pod 'ReactiveCocoa'
 pod 'ReactiveViewModel'
 pod 'MagicalRecord'
+pod 'MGSwipeTableCell'
 
 end
 

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1898FA2D0BDF2187C80FE98C"
-               BuildableName = "libPods-ProjectDemo-ReactiveViewModel.a"
-               BlueprintName = "Pods-ProjectDemo-ReactiveViewModel"
+               BlueprintIdentifier = "E88E4D4DDCBB5780146EA8AF"
+               BuildableName = "libPods-ProjectDemo-MGSwipeTableCell.a"
+               BlueprintName = "Pods-ProjectDemo-MGSwipeTableCell"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

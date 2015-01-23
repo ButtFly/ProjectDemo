@@ -58,7 +58,7 @@
             </objects>
             <point key="canvasLocation" x="176" y="235"/>
         </scene>
-        <!--Date List View Controller-->
+        <!--Title-->
         <scene sceneID="TvQ-XG-LLv">
             <objects>
                 <viewController id="TvV-06-wiW" customClass="DateListViewController" sceneMemberID="viewController">
@@ -71,10 +71,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0ib-qP-uOi">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="sRJ-zd-iLO" style="IBUITableViewCellStyleDefault" id="CTu-Oz-4Ix">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="sRJ-zd-iLO" style="IBUITableViewCellStyleDefault" id="CTu-Oz-4Ix" customClass="MGSwipeTableCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CTu-Oz-4Ix" id="Wia-2w-Vux">
@@ -104,6 +104,15 @@
                             <constraint firstItem="0ib-qP-uOi" firstAttribute="leading" secondItem="iFG-ZK-04t" secondAttribute="leading" id="yK5-49-ziJ"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="RVg-tk-bAy">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Fbc-Kb-FkT">
+                            <connections>
+                                <action selector="addDateAction:" destination="TvV-06-wiW" id="nPl-Zd-gXW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="table" destination="0ib-qP-uOi" id="LQS-ql-bMT"/>
                     </connections>

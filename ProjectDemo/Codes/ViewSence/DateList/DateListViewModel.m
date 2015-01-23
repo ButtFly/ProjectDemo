@@ -17,7 +17,6 @@
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultController;
 @property (nonatomic, strong) SectionInfoDataSourceObject *dataSource;
 @property (nonatomic, strong) SectionChangeInfoObject *sectionChangeInfo;
-@property (nonatomic, strong) NSTimer *timer;
 
 @end
 
@@ -26,7 +25,7 @@
 - (void)fetchedResultControllerPerformFetch {
     if (_fetchedResultController == nil) {
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Date"];
-        [request setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NSOrderedDescending]]];
+        [request setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]]];
         self.fetchedResultController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:[DataCenter defaultManagedObjectContext] sectionNameKeyPath:nil cacheName:nil];
         _fetchedResultController.delegate = self;
         [_fetchedResultController performFetch:nil];
@@ -57,15 +56,8 @@
             self.fetchedResultController = nil;
         }];
         self.dataSource = [SectionInfoDataSourceObject new];
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(changeSections) userInfo:nil repeats:YES];
     }
     return self;
-}
-
-- (void)changeSections {
-    NSManagedObject *managerObj = [NSEntityDescription insertNewObjectForEntityForName:@"Date" inManagedObjectContext:[DataCenter defaultManagedObjectContext]];
-    [managerObj setValue:[NSDate date] forKeyPath:@"date"];
-    [[DataCenter defaultManagedObjectContext] save:nil];
 }
 
 #pragma mark - NSFetchedResultsControllerDelegate
@@ -100,7 +92,10 @@
             [sectionInfo deleteObjectFromObjectsAtIndex:indexPath.row];
             SectionInfoObject *newSectionInfo = [(SectionInfoDataSourceObject *)_dataSource sectionInfoAtIndex:newIndexPath.section];
             [newSectionInfo insertObjectToObjects:anObject atIndex:newIndexPath.row];
-            p_kCacheInfoObject.type |= SectionChangeMoveObjects;
+            [p_kCacheInfoObject.insertObjectsIndexPaths insertObject:newIndexPath atIndex:0];
+            [p_kCacheInfoObject.deleteObjectsIndexPaths insertObject:indexPath atIndex:0];
+            p_kCacheInfoObject.type |= SectionChangeInsertObjects;
+            p_kCacheInfoObject.type |= SectionChangeDeleteObjects;
             break;
         }
         case NSFetchedResultsChangeUpdate: {
