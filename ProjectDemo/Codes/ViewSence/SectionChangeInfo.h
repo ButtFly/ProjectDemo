@@ -9,23 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "SectionChangeInfoProtocol.h"
 
-@interface SectionInfoObject : NSObject <SectionInfo>
-
-@property (nonatomic, strong, readonly) NSString *name;
-@property (nonatomic, strong, readonly) NSString *indexTitle;
-@property (nonatomic, assign, readonly) NSUInteger numberOfObjects;
-@property (nonatomic, copy, readonly) NSArray *objects;
-
-- (void)setName:(NSString *)name;
-- (void)setIndexTitle:(NSString *)indexTitle;
-- (void)setNumberOfObjects:(NSUInteger)numberOfObjects;
-- (void)setObjects:(NSArray *)objects;
-- (void)insertObjectToObjects:(id)anObject atIndex:(NSUInteger)index;
-- (void)deleteObjectFromObjectsAtIndex:(NSUInteger)index;
-- (void)replaceObjectInObjectsAtIndex:(NSUInteger)index withObject:(id)anObject;
-
-@end
-
 @interface SectionChangeInfoObject : NSObject <SectionChangeInfo>
 
 @property (nonatomic, assign) SectionChangeType type;
@@ -38,13 +21,12 @@
 
 @end
 
-@interface SectionInfoDataSourceObject : NSObject <SectionInfoDataSource>
+@class NSFetchedResultsController;
+@interface FetchedResultsControllerDataSourceObject : NSObject <SectionInfoDataSource>
 
-- (SectionInfoObject *)sectionInfoAtIndex:(NSUInteger)index;
+- (instancetype)initWithFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController;
+
+- (id<SectionInfo>)sectionInfoAtIndex:(NSUInteger)index;
 - (NSUInteger)numberOfSectionInfos;
-
-- (void)insertSection:(SectionInfoObject *)anObject atIndex:(NSUInteger)index;
-- (void)deleteSectionAtIndex:(NSUInteger)index;
-- (void)replaceSectionAtIndex:(NSUInteger)index withObject:(SectionInfoObject *)anObject;
 
 @end

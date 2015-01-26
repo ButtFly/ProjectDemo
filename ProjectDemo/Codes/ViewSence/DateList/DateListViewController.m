@@ -92,6 +92,10 @@
     return cell;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return [[[self.viewModel dataSource] sectionInfoAtIndex:section] name];
+}
+
 - (IBAction)addDateAction:(UIBarButtonItem *)sender {
     NSManagedObject *obj = [NSEntityDescription insertNewObjectForEntityForName:@"Date" inManagedObjectContext:[DataCenter defaultManagedObjectContext]];
     [obj setValue:[NSDate date] forKeyPath:@"date"];
