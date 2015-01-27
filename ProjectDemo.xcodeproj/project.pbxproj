@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		062B0A891A776856002C69D5 /* DateInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 062B0A881A776856002C69D5 /* DateInfoViewController.m */; };
+		062B0A8C1A776876002C69D5 /* DateInfoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 062B0A8B1A776876002C69D5 /* DateInfoViewModel.m */; };
 		065D71471A6E2F6100B7AAA5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 065D71461A6E2F6100B7AAA5 /* main.m */; };
 		065D71611A6E2F6200B7AAA5 /* ProjectDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 065D71601A6E2F6200B7AAA5 /* ProjectDemoTests.m */; };
 		065D71701A6E33DC00B7AAA5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 065D716F1A6E33DC00B7AAA5 /* ViewController.m */; };
@@ -34,6 +36,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		062B0A871A776856002C69D5 /* DateInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateInfoViewController.h; sourceTree = "<group>"; };
+		062B0A881A776856002C69D5 /* DateInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateInfoViewController.m; sourceTree = "<group>"; };
+		062B0A8A1A776876002C69D5 /* DateInfoViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateInfoViewModel.h; sourceTree = "<group>"; };
+		062B0A8B1A776876002C69D5 /* DateInfoViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateInfoViewModel.m; sourceTree = "<group>"; };
 		065D71411A6E2F6100B7AAA5 /* ProjectDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		065D71451A6E2F6100B7AAA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		065D71461A6E2F6100B7AAA5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -84,6 +90,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		062B0A861A776809002C69D5 /* DateInfo */ = {
+			isa = PBXGroup;
+			children = (
+				062B0A871A776856002C69D5 /* DateInfoViewController.h */,
+				062B0A881A776856002C69D5 /* DateInfoViewController.m */,
+				062B0A8A1A776876002C69D5 /* DateInfoViewModel.h */,
+				062B0A8B1A776876002C69D5 /* DateInfoViewModel.m */,
+			);
+			path = DateInfo;
+			sourceTree = "<group>";
+		};
 		065D71381A6E2F6100B7AAA5 = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +195,7 @@
 				06BFBA411A709AD500F6C057 /* SectionChangeInfo.h */,
 				06BFBA421A709AD500F6C057 /* SectionChangeInfo.m */,
 				065D717D1A6E38FB00B7AAA5 /* DateList */,
+				062B0A861A776809002C69D5 /* DateInfo */,
 			);
 			path = ViewSence;
 			sourceTree = "<group>";
@@ -373,11 +391,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				062B0A891A776856002C69D5 /* DateInfoViewController.m in Sources */,
 				065D718D1A6E3AC400B7AAA5 /* ProjectDemo.xcdatamodeld in Sources */,
 				0665875E1A75E55E0082BA2A /* Date.m in Sources */,
 				065D71801A6E391100B7AAA5 /* DateListViewController.m in Sources */,
 				065D71701A6E33DC00B7AAA5 /* ViewController.m in Sources */,
 				065D71471A6E2F6100B7AAA5 /* main.m in Sources */,
+				062B0A8C1A776876002C69D5 /* DateInfoViewModel.m in Sources */,
 				06BFBA361A6F819300F6C057 /* DataCenter.m in Sources */,
 				06BFBA431A709AD500F6C057 /* SectionChangeInfo.m in Sources */,
 				065D71831A6E394700B7AAA5 /* DateListViewModel.m in Sources */,

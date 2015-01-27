@@ -40,10 +40,13 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
+        @weakify(self);
         [self.didBecomeActiveSignal subscribeNext:^(id x) {
+            @strongify(self);
             [self fetchedResultControllerPerformFetch];
         }];
         [self.didBecomeInactiveSignal subscribeNext:^(id x) {
+            @strongify(self);
             self.fetchedResultController = nil;
         }];
     }
@@ -96,6 +99,7 @@
             break;
         }
         case NSFetchedResultsChangeDelete: {
+            [p_kCacheInfoObject.deleteSectionsIndexSet addIndex:sectionIndex];
             p_kCacheInfoObject.type |= SectionChangeDeleteSections;
             break;
         }
@@ -103,6 +107,10 @@
             
             break;
     }
+}
+
+- (void)dealloc {
+    NSLog(@"date list view model dealloc");
 }
 
 @end

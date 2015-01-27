@@ -11,6 +11,7 @@
 #import <MGSwipeTableCell/MGSwipeTableCell.h>
 #import <MGSwipeTableCell/MGSwipeButton.h>
 #import "DataCenter.h"
+#import "DateInfoViewController.h"
 
 @interface DateListViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -96,9 +97,19 @@
     return [[[self.viewModel dataSource] sectionInfoAtIndex:section] name];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSManagedObject *obj = [[[self.viewModel.dataSource sectionInfoAtIndex:indexPath.section] objects] objectAtIndex:indexPath.row];
+    NSDate *date = [obj valueForKeyPath:@"date"];
+    [self.navigationController pushViewController:[DateInfoViewController viewControllerWithDate:date] animated:YES];
+}
+
 - (IBAction)addDateAction:(UIBarButtonItem *)sender {
     NSManagedObject *obj = [NSEntityDescription insertNewObjectForEntityForName:@"Date" inManagedObjectContext:[DataCenter defaultManagedObjectContext]];
     [obj setValue:[NSDate date] forKeyPath:@"date"];
+}
+
+- (void)dealloc {
+    NSLog(@"date list view controller dealloc");
 }
 
 @end

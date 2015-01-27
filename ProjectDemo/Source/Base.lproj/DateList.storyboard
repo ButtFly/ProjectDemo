@@ -74,7 +74,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="sRJ-zd-iLO" style="IBUITableViewCellStyleDefault" id="CTu-Oz-4Ix" customClass="MGSwipeTableCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="sRJ-zd-iLO" style="IBUITableViewCellStyleDefault" id="CTu-Oz-4Ix" customClass="MGSwipeTableCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CTu-Oz-4Ix" id="Wia-2w-Vux">
@@ -120,6 +120,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bLh-Vk-1mg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="944" y="235"/>
+        </scene>
+        <!--Date Info View Controller-->
+        <scene sceneID="bNa-9v-ckz">
+            <objects>
+                <viewController storyboardIdentifier="date_info_view_controller" id="Ji2-En-PKf" customClass="DateInfoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Mr4-rG-mQL"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hfx-3n-7vc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="73V-ds-KZt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10b-De-r4R">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="10b-De-r4R" secondAttribute="trailing" id="KXC-gi-E9L"/>
+                            <constraint firstItem="10b-De-r4R" firstAttribute="leading" secondItem="73V-ds-KZt" secondAttribute="leading" id="M24-hP-khe"/>
+                            <constraint firstItem="Hfx-3n-7vc" firstAttribute="top" secondItem="10b-De-r4R" secondAttribute="bottom" id="eaP-kb-m8R"/>
+                            <constraint firstItem="10b-De-r4R" firstAttribute="top" secondItem="Mr4-rG-mQL" secondAttribute="bottom" id="rHp-Fa-SAI"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="label" destination="10b-De-r4R" id="DTx-bZ-dPt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DGR-GD-sKK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1885" y="235"/>
         </scene>
     </scenes>
 </document>
