@@ -9,9 +9,27 @@
 #import "ViewController.h"
 #import <ReactiveViewModel/ReactiveViewModel.h>
 
-@interface ViewController ()
+@interface ViewController () {
+    NSMutableDictionary *p_kSpecialConstants;
+}
 
 @end
+
+static CGSize ScreenSizeW_320_H_480() {
+    return CGSizeMake(320, 480);
+}
+
+static CGSize ScreenSizeW_320_H_568() {
+    return CGSizeMake(320, 568);
+}
+
+static CGSize ScreenSizeW_375_H_667() {
+    return CGSizeMake(375, 667);
+}
+
+static CGSize ScreenSizeW_414_H_736() {
+    return CGSizeMake(414, 736);
+}
 
 @implementation ViewController
 
@@ -35,4 +53,58 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - contents fit
+
+- (NSMutableDictionary *)specialConstants {
+    if (p_kSpecialConstants == nil) {
+        p_kSpecialConstants = [NSMutableDictionary dictionary];
+    }
+    return p_kSpecialConstants;
+}
+
+- (id)specialConstantWithIdentifier:(NSString *)identifier {
+    return [[self specialConstants] objectForKey:identifier];
+}
+
+- (BOOL)isCurrentScreenSizeMatch:(ScreenSizeOptions)option {
+    BOOL result = NO;
+    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+    if (ScreenSizeW320_H480 & option) {
+        result |= CGSizeEqualToSize(ScreenSizeW_320_H_480(), screenSize);
+    }
+    if (!result && ScreenSizeW320_H568 & option) {
+        result |= CGSizeEqualToSize(ScreenSizeW_320_H_568(), screenSize);
+    }
+    if (!result && ScreenSizeW375_H667 & option) {
+        result |= CGSizeEqualToSize(ScreenSizeW_375_H_667(), screenSize);
+    }
+    if (!result && ScreenSizeW414_H736 & option) {
+        result |= CGSizeEqualToSize(ScreenSizeW_414_H_736(), screenSize);
+    }
+    return result;
+}
+
+- (void)needFitScreenSizeWithContents:(NSArray *)contents andValues:(NSArray *)values screenSizeOptions:(ScreenSizeOptions)size {
+    if (![self isCurrentScreenSizeMatch:size]) return;
+    [contents enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        if ([obj isKindOfClass:[UIView class]]) {
+            [obj setValue:values[idx] forKey:@"font"];
+        } else if ([obj isKindOfClass:[NSLayoutConstraint class]]) {
+            [obj setConstant:[values[idx] floatValue]];
+        } else if ([obj isKindOfClass:[NSString class]]) {
+            [[self specialConstants] setObject:values[idx] forKey:obj];
+        }
+    }];
+}
+
 @end
+
+
+
+
+
+
+
+
+
+

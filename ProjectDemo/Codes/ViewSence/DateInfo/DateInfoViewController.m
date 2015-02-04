@@ -22,6 +22,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     RAC(_label, text) = RACObserve(self.viewModel, dateString);
+    [self needFitScreenSizeWithContents:@[_label] andValues:@[[UIFont systemFontOfSize:40]] screenSizeOptions:ScreenSizeW375_H667 | ScreenSizeW414_H736];
 }
 
 - (void)didReceiveMemoryWarning {

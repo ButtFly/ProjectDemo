@@ -6,10 +6,9 @@
 //  Copyright (c) 2015年 余河川. All rights reserved.
 //
 
-#import <ReactiveViewModel/ReactiveViewModel.h>
-#import <ReactiveCocoa/ReactiveCocoa.h>
+#import "ViewModel.h"
 
-@interface DateInfoViewModel : RVMViewModel
+@interface DateInfoViewModel : ViewModel
 
 @property (nonatomic, strong) NSString *dateString;
 

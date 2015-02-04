@@ -6,11 +6,10 @@
 //  Copyright (c) 2015年 余河川. All rights reserved.
 //
 
-#import <ReactiveViewModel/ReactiveViewModel.h>
-#import <ReactiveCocoa/ReactiveCocoa.h>
+#import "ViewModel.h"
 #import "SectionChangeInfoProtocol.h"
 
-@interface DateListViewModel : RVMViewModel
+@interface DateListViewModel : ViewModel
 
 @property (nonatomic, strong, readonly) id<SectionChangeInfo> sectionChangeInfo;
 @property (nonatomic, strong, readonly) id<SectionInfoDataSource> dataSource;

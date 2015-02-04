@@ -54,6 +54,8 @@
             }
         });
     }];
+    [self needFitScreenSizeWithContents:@[@"Cell"] andValues:@[@(44.0)] screenSizeOptions:ScreenSizeW320_H480 | ScreenSizeW320_H568];
+    [self needFitScreenSizeWithContents:@[@"Cell"] andValues:@[@(54.0)] screenSizeOptions:ScreenSizeW375_H667 | ScreenSizeW414_H736];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -91,6 +93,10 @@
     }];
     [cell setRightButtons:@[button1, button2]];
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [[self specialConstantWithIdentifier:@"Cell"] floatValue];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
